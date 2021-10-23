@@ -11,13 +11,13 @@ func main() {
 	src := "./input"
 	dest := "./output"
 
-	err := addEntry(src, dest, "")
+	err := entry(src, dest, "")
 	if err != nil {
 		os.Exit(1)
 	}
 }
 
-func addEntry(src, dest, path string) error {
+func entry(src, dest, path string) error {
 	srcPath := filepath.Join(src, path)
 	fs, err := os.Stat(srcPath)
 	if err != nil {
@@ -49,7 +49,7 @@ func addDir(src, dest, path string) error {
 		return err
 	}
 	for _, f := range fi {
-		err := addEntry(sp, dp, f.Name())
+		err := entry(sp, dp, f.Name())
 		if err != nil {
 			return err
 		}
