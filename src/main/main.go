@@ -18,8 +18,8 @@ func main() {
 }
 
 func entry(src, dest, path string) error {
-	srcPath := filepath.Join(src, path)
-	fs, err := os.Stat(srcPath)
+	sp := filepath.Join(src, path)
+	fs, err := os.Stat(sp)
 	if err != nil {
 		return err
 	}
